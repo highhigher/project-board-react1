@@ -15,7 +15,18 @@ if(window.navigator.userAgent.includes("Chrome") && ReactReduxDevTools) {
         initialState,
         compose(applyMiddleware(...middleware), ReactReduxDevTools)
     );
+} else {
+    store = createStore(
+        rootReducer,
+        initialState,
+        compose(applyMiddleware(
+            ...middleware
+        ))
+    )
 }
+
+export default store;
+
 
 
 
